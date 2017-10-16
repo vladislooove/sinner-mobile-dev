@@ -1,14 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+import combinedStore from './src/reducers/';
+
+import Application from './src/containers/Application';
+
+let store = createStore(combinedStore, applyMiddleware(thunk));
 
 export default class App extends React.Component {
 	render() {
 		return (
-			<View style={styles.container}>
-			<Text>Open up App.js to start working on your app!</Text>
-			<Text>Changes you make will automatically reload.</Text>
-			<Text>Shake your phone to open the developer menu.</Text>
-			</View>
+		    <Provider store={store}>
+				<Application />
+			</Provider>
 		);
 	}
 }
