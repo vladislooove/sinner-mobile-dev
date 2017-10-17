@@ -17,14 +17,14 @@ const Tabbar = TabNavigator({
     tabBarPosition: 'bottom',
     animationEnabled: true,
     tabBarOptions: {
+        showIcon: true,
+        showLabel: false,
         activeTintColor: '#e22d22',
+        inactiveTintColor: '#fff',
         style: {
             backgroundColor: '#000',
             borderTopWidth: 1,
             borderTopColor: '#e22d22'
-        },
-        labelStyle: {
-            fontSize: 10
         },
         indicatorStyle: {
             backgroundColor: '#e22d22'
