@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 
 import combinedStore from './src/reducers/';
 
-import Application from './src/containers/Application';
+import Router from './src/containers/Router';
 
 let store = createStore(combinedStore, applyMiddleware(thunk));
 
@@ -14,7 +14,7 @@ export default class App extends React.Component {
 	render() {
 		return (
 		    <Provider store={store}>
-				<Application />
+				<Router />
 			</Provider>
 		);
 	}

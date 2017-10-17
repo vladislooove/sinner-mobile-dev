@@ -32,7 +32,7 @@ const Tabbar = TabNavigator({
     },
 });
 
-export default class Application extends React.Component {
+export default class Router extends React.Component {
     render() {
         return <Tabbar />;
     }

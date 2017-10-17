@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { ScrollView } from 'react-native';
+import { Icon, Text } from 'react-native-elements';
 
 class AddSins extends React.Component {
     static navigationOptions = {
@@ -13,7 +13,11 @@ class AddSins extends React.Component {
     };
     
     render() {
-        return <Text>AddSins Component!</Text>;    
+        return (
+            <ScrollView style={{backgroundColor: '#222', flex: 1, paddingTop: 25, paddingLeft: 5, paddingRight: 5}} >
+                <Text h4 style={{ color: '#fff' }}> Що Ви накоїли? </Text>
+            </ScrollView>
+        );    
     }
 }
 
