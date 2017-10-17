@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 
 class Sins extends React.Component {
     static navigationOptions = {
-        title: 'Sins'
+        tabBarLabel: 'Sins'
     };
     render() {
         return <Text>Sins Component!</Text>;    

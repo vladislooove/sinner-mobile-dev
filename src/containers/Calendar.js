@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 
 class Calendar extends React.Component {
     static navigationOptions = {
-        title: 'Calendar'
+        tabBarLabel: 'Timing'
     };
     render() {
         return <Text>Calendar Component!</Text>;    
