@@ -1,15 +1,17 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { Text, FlatList } from 'react-native';
 
 import SinCard from './SinCard';
 
 const SinsList = (props) => {
     if(props.sins.length){
         return (
-            <FlatList>
-                {props.sins.map((sin)=>{
+            <FlatList
+                data={props.sins}
+                renderItem={(sin)=>{
                     return (
-                        <SinCard key={sin._id}
+                        <SinCard 
+                            key={sin._id}
                             id={sin._id}
                             name={sin.name}
                             cetegory={sin.category}
@@ -17,8 +19,8 @@ const SinsList = (props) => {
                             createdAt={sin.createdAt}
                             additional={sin.additional}/>
                     )
-                })}
-            </FlatList>
+                }}
+            />
         )
     }
     else{
