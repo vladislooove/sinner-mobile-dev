@@ -1,24 +1,24 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { FlatList } from 'react-native';
 
-//import SinCard from './SinCard';
+import SinCard from './SinCard';
 
 const SinsList = (props) => {
     if(props.sins.length){
         return (
-            <View>
+            <FlatList>
                 {props.sins.map((sin)=>{
                     return (
-                        <Text key={sin._id}> key={sin._id}
-                                id={sin._id}
-                                name={sin.name}
-                                cetegory={sin.category}
-                                circle={sin.circle}
-                                createdAt={sin.createdAt}
-                                additional={sin.additional}</Text>
+                        <SinCard key={sin._id}
+                            id={sin._id}
+                            name={sin.name}
+                            cetegory={sin.category}
+                            circle={sin.circle}
+                            createdAt={sin.createdAt}
+                            additional={sin.additional}/>
                     )
                 })}
-            </View>
+            </FlatList>
         )
     }
     else{
