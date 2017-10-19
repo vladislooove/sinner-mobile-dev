@@ -25,7 +25,7 @@ const SinsList = (props) => {
     }
     else{
         return (
-            <Text>Результатів не знайдено.</Text>
+            <Text style={{color: '#fff'}}>Результатів не знайдено.</Text>
         )
     }
 }
