@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Card } from 'react-native-elements';
 
 
 const SinCard = (props) =>{
@@ -20,14 +19,12 @@ const SinCard = (props) =>{
     let createdAtMinutes = formatDate(createdAt.getMinutes());
 
     return (
-        <Card style={{marginBottom: 10, backgroundColor: '#fff'}}
-              title={props.name}
-              key={props.id}>
+        <View style={{marginBottom: 10, backgroundColor: '#fff'}}>
             <View>
             <Text>{props.additional}</Text>
         </View>
 
-        </Card>
+        </View>
     )
 }
 

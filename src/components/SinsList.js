@@ -8,11 +8,11 @@ const SinsList = (props) => {
         return (
             <FlatList
                 data={props.sins}
+                keyExtractor={sin => sin._id}
                 renderItem={(sin)=>{
                     return (
                         <SinCard 
-                            key={sin.index}
-                            id={sin.item_id}
+                            id={sin.item._id}
                             name={sin.item.name}
                             cetegory={sin.item.category}
                             circle={sin.item.circle}
