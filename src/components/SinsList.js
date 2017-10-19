@@ -11,13 +11,13 @@ const SinsList = (props) => {
                 renderItem={(sin)=>{
                     return (
                         <SinCard 
-                            key={sin._id}
-                            id={sin._id}
-                            name={sin.name}
-                            cetegory={sin.category}
-                            circle={sin.circle}
-                            createdAt={sin.createdAt}
-                            additional={sin.additional}/>
+                            key={sin.index}
+                            id={sin.item_id}
+                            name={sin.item.name}
+                            cetegory={sin.item.category}
+                            circle={sin.item.circle}
+                            createdAt={sin.item.createdAt}
+                            additional={sin.item.additional}/>
                     )
                 }}
             />
