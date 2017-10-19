@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ScrollView } from 'react-native';
+import { ScrollView, ActivityIndicator } from 'react-native';
 import { Icon, Text } from 'react-native-elements';
 
 import SinsList from '../components/SinsList';
@@ -35,8 +35,8 @@ class Sins extends React.Component {
     render() {
         return (
             <ScrollView style={{backgroundColor: '#222', flex: 1, paddingTop: 25, paddingLeft: 15, paddingRight: 15}} >
-                <Text h4 style={{ color: '#fff' }}> Список ваших гріхів: </Text>
-                <SinsList sins={this.props.sins} />
+                <Text h4 style={{ color: '#fff', paddingBottom: 30 }}> Список ваших гріхів: </Text>
+                { this.props.isLoading ? <ActivityIndicator size='large' /> : <SinsList sins={this.props.sins} /> }
             </ScrollView>
         )
     }
@@ -44,7 +44,8 @@ class Sins extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        sins: state.sins
+        sins: state.sins,
+        isLoading: state.loading
     }
 }
 
