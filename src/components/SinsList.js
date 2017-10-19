@@ -7,6 +7,7 @@ const SinsList = (props) => {
     if(props.sins.length){
         return (
             <FlatList
+                style={{paddingTop: 30}}
                 data={props.sins}
                 keyExtractor={sin => sin._id}
                 renderItem={(sin)=>{
