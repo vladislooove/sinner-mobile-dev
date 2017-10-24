@@ -1,6 +1,12 @@
 import React from 'react';
-import { ScrollView, TextInput } from 'react-native';
+import { ScrollView, TextInput, Picker, Button } from 'react-native';
 import { Icon, Text } from 'react-native-elements';
+
+import { connect } from 'react-redux';
+
+import { addSins } from '../actions/';
+
+import { infernoData } from '../localData/data';
 
 class AddSins extends React.Component {
     constructor(props) {
@@ -17,6 +23,16 @@ class AddSins extends React.Component {
              />
         ),
     };
+
+    addSins(event){
+        let name = this.form.input._lastNativeText;
+        let circle = this.form.select.props.selectedValue;
+        let category = this.form.select.props.children[circle - 1].props.label;
+        let additional = this.form.textarea._lastNativeText;
+        console.log(name, circle, category, additional)
+        this.props.addSins(name, category, circle, additional)
+    }
+
     
     render() {
         return (
@@ -35,9 +51,43 @@ class AddSins extends React.Component {
                         placeholder='Коментар'
                         returnKeyType='next'
                         ref={(textarea) => this.form.textarea = textarea}/>
+                    <Picker
+                        style={{color: '#fff'}}
+                        selectedValue={this.state.circle}
+                        onValueChange={(itemValue) => this.setState({circle: itemValue})}
+                        ref={(select) => this.form.select = select}>
+                        
+                        {infernoData.map((item)=>{
+                            return ( 
+                                <Picker.Item 
+                                    key={item.circle}
+                                    label={item.name} 
+                                    value={item.circle} />
+                            )}
+                        )}
+                    </Picker>
+                    <Button
+                        color='#e22d22'
+                        title='Додати'
+                        onPress={this.addSins.bind(this)} />
             </ScrollView>
         );    
     }
 }
 
-export default AddSins;
+const mapStateToProps = state => {
+    return {
+        sins: state.sins
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addSins: (name, category, circle, additional) => {
+            dispatch(addSins(name, category, circle, additional))
+        }
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddSins);
