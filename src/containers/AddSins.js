@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 
 import { addSins } from '../actions/';
 
+import SinInfo from '../components/SinInfo';
+
 import { infernoData } from '../localData/data';
 
 class AddSins extends React.Component {
@@ -70,6 +72,7 @@ class AddSins extends React.Component {
                         color='#e22d22'
                         title='Додати'
                         onPress={this.addSins.bind(this)} />
+                    <SinInfo circle={this.state.circle} />
             </ScrollView>
         );    
     }
