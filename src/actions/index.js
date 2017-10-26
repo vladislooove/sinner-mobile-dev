@@ -1,4 +1,5 @@
 import api from '../api/';
+import { ToastAndroid } from 'react-native';
 
 export const loadSins = () => {
     return dispatch =>{
@@ -79,11 +80,14 @@ export const addSins = (name, category, circle, additional) =>{
         })
 
         api.addSins({name, category, circle, additional}).then(
-            response => dispatch({
-                type: 'ADD_SINS_END'
-            },{
-                type: 'ADD_SINS_SUCCESS'
-            })
+            response => {
+                ToastAndroid.show('Додано!', ToastAndroid.LONG);
+                return dispatch({
+                    type: 'ADD_SINS_END'
+                },{
+                    type: 'ADD_SINS_SUCCESS'
+                })
+            }
         )
         .catch(
             error => dispatch({

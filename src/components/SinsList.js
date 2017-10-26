@@ -17,7 +17,8 @@ const SinsList = (props) => {
                             cetegory={sin.item.category}
                             circle={sin.item.circle}
                             createdAt={sin.item.createdAt}
-                            additional={sin.item.additional}/>
+                            additional={sin.item.additional}
+                            navigation={props.navigation}/>
                     )
                 }}
             />

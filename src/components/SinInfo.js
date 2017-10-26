@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, Image, Button } from 'react-native';
+import { View, Image, Button } from 'react-native';
+import { Text } from 'react-native-elements';
 
 import { infernoData } from '../localData/data';
 
@@ -25,9 +26,18 @@ const SinInfo = (props) => {
     })
     if(currentSinInfo){
         return (
-            <Text>
-                {currentSinInfo.circle}
-            </Text>
+            <View style={{paddingTop: 30, }}>
+                <Text h4 style={{ color: '#fff', marginBottom: 10 }}> {currentSinInfo.name} </Text>
+                <Image
+                    style={{width: '100%', height: 250, marginBottom: 10}}
+                    source={circleImages[currentSinInfo.circle]}/>
+                <Text h6 style={{ color: '#fff', marginBottom: 10 }}>
+                    Коло: {currentSinInfo.circle}
+                </Text>
+                <Text h6 style={{ color: '#fff', marginBottom: 50 }}>
+                    {currentSinInfo.description}
+                </Text>
+            </View>
         )
     }
     return null;

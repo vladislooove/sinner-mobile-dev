@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, TextInput, Picker, Button } from 'react-native';
+import { ScrollView, TextInput, Picker, Button, ActivityIndicator } from 'react-native';
 import { Icon, Text } from 'react-native-elements';
 
 import { connect } from 'react-redux';
@@ -31,7 +31,6 @@ class AddSins extends React.Component {
         let circle = this.form.select.props.selectedValue;
         let category = this.form.select.props.children[circle - 1].props.label;
         let additional = this.form.textarea._lastNativeText;
-        console.log(name, circle, category, additional)
         this.props.addSins(name, category, circle, additional)
     }
 
@@ -69,9 +68,13 @@ class AddSins extends React.Component {
                         )}
                     </Picker>
                     <Button
+                        disabled={ this.props.isLoading ? true : false }
                         color='#e22d22'
                         title='Додати'
                         onPress={this.addSins.bind(this)} />
+
+                    { this.props.isLoading ? <ActivityIndicator size='large' /> : null } 
+
                     <SinInfo circle={this.state.circle} />
             </ScrollView>
         );    
@@ -80,7 +83,7 @@ class AddSins extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        sins: state.sins
+        isLoading: state.loading
     }
 }
 

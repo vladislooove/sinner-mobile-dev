@@ -1,4 +1,3 @@
-
 const sins = (state = [], action) => {
     switch (action.type){        
         case 'LOAD_SINS_SUCCESS':

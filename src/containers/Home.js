@@ -33,7 +33,11 @@ class Home extends React.Component {
         return (
             <ScrollView style={{backgroundColor: '#222', flex: 1, paddingTop: 25, paddingLeft: 5, paddingRight: 5}} >
                 <Text h4 style={{ color: '#fff', paddingBottom: 30 }}>Список ваших гріхів за сьогодні:</Text>
-                 { this.props.isLoading ? <ActivityIndicator size='large' /> : <SinsList sins={this.props.todaySins} /> }
+                 { this.props.isLoading ? 
+                    <ActivityIndicator size='large' /> : 
+                    <SinsList 
+                        sins={this.props.todaySins}
+                        navigation={this.props.navigation} /> }
             </ScrollView>
         )
     }

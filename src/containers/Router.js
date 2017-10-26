@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import { enhance } from 'react-navigation-addons';
 
 //components
@@ -8,6 +8,7 @@ import Home from './Home';
 import Sins from './Sins';
 import AddSins from './AddSins';
 import Calendar from './Calendar';
+import SinsPage from './SinsPage';
 
 const Tabbar = enhance(TabNavigator)({
     Home: { screen: Home },
