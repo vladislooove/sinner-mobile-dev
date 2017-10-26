@@ -1,3 +1,7 @@
 node_modules/
 .expo/
 npm-debug.*
+adb.0.log
+haste-map-react-native-packager*
+react-native-packager-cache*/*
+metro-bundler*
