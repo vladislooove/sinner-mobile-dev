@@ -36,12 +36,18 @@ class Calendar extends React.Component {
             <ScrollView style={{backgroundColor: '#222', flex: 1, paddingTop: 25, paddingLeft: 5, paddingRight: 5}} >
                 <Text h4 style={{ color: '#fff' }}> Перегляд по даті </Text>
                 <TouchableOpacity
-                    onPress={this.showDatePickerFrom.bind(this)}>
-                    <Text>Date from</Text>
+                    onPress={this.showDatePickerFrom.bind(this, 'max', {
+                        maxDate: new Date(),
+                        mode: 'calendar'
+                    })}>
+                    <Text style={{ textAlign: 'center', color: '#fff', fontSize: 16, paddingTop: 10, paddingBottom: 10}}>Обрати початкову дату</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={this.showDatePickerTo.bind(this)}>
-                    <Text>Date To</Text>
+                    onPress={this.showDatePickerTo.bind(this, 'max', {
+                        maxDate: new Date(),
+                        mode: 'calendar'
+                    })}>
+                    <Text style={{ textAlign: 'center', color: '#fff', fontSize: 16, paddingTop: 10, paddingBottom: 10}}>Обрати кінцеву дату</Text>
                 </TouchableOpacity>
             </ScrollView>
         )
