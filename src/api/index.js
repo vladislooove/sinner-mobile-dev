@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //see backend/server/etc/config.json
 
-const apiPrefix = 'http://192.168.1.172:8080';
+const apiPrefix = 'http://192.168.0.101:8080';
 
 export default {
     listSins(){
