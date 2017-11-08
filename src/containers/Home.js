@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ScrollView, ActivityIndicator } from 'react-native';
-import { Icon, Text } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 
 import SinsList from '../components/SinsList';
 import Progress from '../components/Progress';
@@ -9,25 +9,10 @@ import Progress from '../components/Progress';
 import { loadTodaySins } from '../actions/';
 
 class Home extends React.Component {
-    static navigationOptions = {
-        tabBarIcon: ({ tintColor }) => (
-            <Icon
-                name='home'
-                color={ tintColor }
-             />
-        ),
-    }
-
-    componentDidMount() {
-        this.props.navigation.addListener('focus', this.load.bind(this));
-    }
-
-    componentWillUnmount() {
-        this.props.navigation.removeListener('focus', this.load.bind(this));
-    }
-
-    load(){
-        this.props.loadTodaySins()
+    componentWillMount() {
+        console.log('HOME');
+        this.props.loadTodaySins();
+        console.log(this.props.todaySins);
     }
 
     render() {

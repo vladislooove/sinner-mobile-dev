@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, TextInput, Picker, Button, ActivityIndicator } from 'react-native';
-import { Icon, Text } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 
 import { connect } from 'react-redux';
 
@@ -16,15 +16,6 @@ class AddSins extends React.Component {
         this.form = {};
         this.state = {circle: 1};
     }
-
-    static navigationOptions = {
-        tabBarIcon: ({ tintColor }) => (
-            <Icon
-                name='add-circle'
-                color={ tintColor }
-             />
-        ),
-    };
 
     addSins(event){
         let name = this.form.input._lastNativeText;

@@ -1,5 +1,5 @@
 import api from '../api/';
-import { ToastAndroid } from 'react-native';
+import { ToastAndroid, Vibration } from 'react-native';
 
 export const loadSins = () => {
     return dispatch =>{
@@ -82,6 +82,7 @@ export const addSins = (name, category, circle, additional) =>{
         api.addSins({name, category, circle, additional}).then(
             response => {
                 ToastAndroid.show('Додано!', ToastAndroid.LONG);
+                Vibration.vibrate([500, 1000]);
                 return dispatch({
                     type: 'ADD_SINS_END'
                 },{

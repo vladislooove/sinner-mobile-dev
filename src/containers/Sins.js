@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ScrollView, ActivityIndicator } from 'react-native';
-import { Icon, Text } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 
 import SinsList from '../components/SinsList';
 
@@ -12,24 +12,10 @@ class Sins extends React.Component {
         super(props);
     }
 
-    static navigationOptions = {
-        tabBarIcon: ({ tintColor }) => (
-            <Icon
-                name='view-list'
-                color={ tintColor }
-             />
-        ),
-    };
     componentDidMount() {
-        this.props.navigation.addListener('focus', this.load.bind(this));
-    }
-
-    componentWillUnmount() {
-        this.props.navigation.removeListener('focus', this.load.bind(this));
-    }
-
-    load(){
-        this.props.loadSins()
+        console.log('SINS');
+        this.props.loadSins();
+        console.log(this.props.sins);
     }
 
     render() {

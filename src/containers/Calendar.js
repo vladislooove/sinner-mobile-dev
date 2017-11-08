@@ -1,17 +1,8 @@
 import React from 'react';
 import { ScrollView, DatePickerAndroid, TouchableOpacity } from 'react-native';
-import { Icon, Text } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 
 class Calendar extends React.Component {
-
-    static navigationOptions = {
-        tabBarIcon: ({ tintColor }) => (
-            <Icon
-                name='date-range'
-                color={ tintColor }
-             />
-        ),
-    };
 
     showDatePickerFrom = async (stateKey, options) => {
         try {

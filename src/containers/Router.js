@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { TabNavigator, StackNavigator } from 'react-navigation';
-import { enhance } from 'react-navigation-addons';
+
+import { Icon, Text } from 'react-native-elements';
 
 //components
 import Home from './Home';
@@ -10,11 +11,72 @@ import AddSins from './AddSins';
 import Calendar from './Calendar';
 import SinsPage from './SinsPage';
 
-const Tabbar = enhance(TabNavigator)({
-    Home: { screen: Home },
-    Sins: { screen: Sins },
-    AddSins: { screen: AddSins },
-    Calendar: { screen: Calendar }
+const SinsTab = StackNavigator({
+    Sins: {
+        screen: Sins,
+        path: '/sins',
+        navigationOptions: {
+            header: null,
+            tabBarIcon: ({ tintColor }) => (
+                <Icon
+                    name='view-list'
+                    color={ tintColor }
+                />
+            ),
+        },
+    },
+    SinsPage: {
+        screen: SinsPage,
+        path: '/sins/:id',
+        navigationOptions: {
+            tabBarIcon: ({ tintColor }) => (
+                <Icon
+                    name='view-list'
+                    color={ tintColor }
+                />
+            ),
+        },
+    }
+});
+
+const Tabbar = TabNavigator({
+    Home: { 
+        screen: Home,
+        navigationOptions: {
+            tabBarIcon: ({ tintColor }) => (
+                <Icon
+                    name='home'
+                    color={ tintColor }
+                />
+            ),
+        },
+    },
+    SinsTab: { 
+        screen: SinsTab 
+    },
+    AddSins: { 
+        screen: AddSins,
+        navigationOptions: {
+            tabBarIcon: ({ tintColor }) => (
+                <Icon
+                    name='add-circle'
+                    color={ tintColor }
+                />
+            ),
+        },
+    },
+    Calendar: { 
+        screen: Calendar,
+        navigationOptions: {
+            tabBarIcon: ({ tintColor }) => (
+                <Icon
+                    name='date-range'
+                    color={ tintColor }
+                />
+            ),
+        },
+
+    }
 },{
     tabBarPosition: 'bottom',
     animationEnabled: true,
