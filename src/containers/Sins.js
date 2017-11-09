@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ScrollView, ActivityIndicator } from 'react-native';
+import { ScrollView, ActivityIndicator, StatusBar } from 'react-native';
 import { Text } from 'react-native-elements';
 
 import SinsList from '../components/SinsList';
@@ -13,14 +13,16 @@ class Sins extends React.Component {
     }
 
     componentDidMount() {
-        console.log('SINS');
         this.props.loadSins();
-        console.log(this.props.sins);
     }
 
     render() {
         return (
             <ScrollView style={{backgroundColor: '#222', flex: 1, paddingTop: 25, paddingLeft: 15, paddingRight: 15}} >
+                <StatusBar
+                    hidden={true}
+                />
+
                 <Text h4 style={{ color: '#fff', paddingBottom: 30 }}> Список ваших гріхів: </Text>
                 { this.props.isLoading ? 
                     <ActivityIndicator size='large' /> : 

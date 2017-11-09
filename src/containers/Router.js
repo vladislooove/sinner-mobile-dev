@@ -29,6 +29,11 @@ const SinsTab = StackNavigator({
         screen: SinsPage,
         path: '/sins/:id',
         navigationOptions: {
+            title: 'Деталі',
+            headerStyle: {
+                backgroundColor: '#000',
+                tintColor: '#fff'
+            },
             tabBarIcon: ({ tintColor }) => (
                 <Icon
                     name='view-list'

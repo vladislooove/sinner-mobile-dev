@@ -107,7 +107,9 @@ export const deleteSins = (id) => {
         })
         api.deleteSins(id).then(
             response => {
-                dispatch({
+                ToastAndroid.show('Видалено!', ToastAndroid.LONG);
+                Vibration.vibrate([500, 1000]);
+                return dispatch({
                     type: 'DELETE_SINS_SUCCESS',
                     payload: id
                 },{

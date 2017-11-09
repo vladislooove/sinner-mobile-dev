@@ -10,9 +10,7 @@ import { loadTodaySins } from '../actions/';
 
 class Home extends React.Component {
     componentWillMount() {
-        console.log('HOME');
         this.props.loadTodaySins();
-        console.log(this.props.todaySins);
     }
 
     render() {

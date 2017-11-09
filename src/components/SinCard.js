@@ -49,7 +49,7 @@ const SinCard = (props) =>{
                 <Text style={{color: '#fff', fontSize: 18, marginBottom: 10 }}>{props.name.toUpperCase()}</Text>
                 <Text style={{color: '#fff', fontSize: 16, marginBottom: 10 }}>{props.additional}</Text>
                 <Button
-                    onPress={() => props.navigation.navigate('SinsPage')}
+                    onPress={() => props.navigation.navigate('SinsPage', { id: props.id })}
                     color='#e22d22'
                     title='Переглянути' />
             </View>
