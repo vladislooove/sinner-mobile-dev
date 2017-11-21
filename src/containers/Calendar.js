@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, DatePickerAndroid, TouchableOpacity } from 'react-native';
+import { ScrollView, DatePickerAndroid, TouchableOpacity, Button } from 'react-native';
 import { Text } from 'react-native-elements';
 
 class Calendar extends React.Component {
@@ -40,6 +40,11 @@ class Calendar extends React.Component {
                     })}>
                     <Text style={{ textAlign: 'center', color: '#fff', fontSize: 16, paddingTop: 10, paddingBottom: 10}}>Обрати кінцеву дату</Text>
                 </TouchableOpacity>
+                <Button
+                    onPress={() => { console.log(this)} }
+                    color='#e22d22'
+                    title='Переглянути' />
+
             </ScrollView>
         )
     }

@@ -8,7 +8,9 @@ import SinInfo from '../components/SinInfo';
 
 class SinsPage extends React.Component{
     componentWillMount(){
-        this.props.loadSinById(this.props.navigation.state.params.id)
+        if(this.props.navigation.state.params.id !== this.props.currentSin._id){
+            this.props.loadSinById(this.props.navigation.state.params.id)
+        }
     }
 
     deleteSins(id){

@@ -8,9 +8,6 @@ import SinsList from '../components/SinsList';
 import { loadSins } from '../actions/';
 
 class Sins extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.props.loadSins();

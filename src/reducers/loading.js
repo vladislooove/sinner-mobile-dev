@@ -7,10 +7,22 @@ const loading = (state = false, action) => {
         case 'LOAD_SINS_END':
         return false;
 
+        case 'LOAD_TODAY_SINS_START':
+        return true;
+
+        case 'LOAD_TODAY_SINS_END':
+        return false;
+
         case 'ADD_SINS_START':
         return true;
 
         case 'ADD_SINS_END':
+        return false;
+
+        case 'ADD_TODAY_SINS_START':
+        return true;
+
+        case 'ADD_TODAY_SINS_END':
         return false;
 
         case 'DELETE_SINS_START':

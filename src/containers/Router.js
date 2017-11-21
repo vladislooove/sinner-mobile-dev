@@ -10,6 +10,7 @@ import Sins from './Sins';
 import AddSins from './AddSins';
 import Calendar from './Calendar';
 import SinsPage from './SinsPage';
+import CalendarSins from './CalendarSins';
 
 const SinsTab = StackNavigator({
     Sins: {
@@ -32,11 +33,46 @@ const SinsTab = StackNavigator({
             title: 'Деталі',
             headerStyle: {
                 backgroundColor: '#000',
-                tintColor: '#fff'
             },
+            headerTintColor: '#fff',
+        
             tabBarIcon: ({ tintColor }) => (
                 <Icon
                     name='view-list'
+                    color={ tintColor }
+                />
+            ),
+        },
+    }
+});
+
+const CalendarTab = StackNavigator({
+    Calendar: {
+        screen: Calendar,
+        path: '/calendar',
+        navigationOptions: {
+            header: null,
+            tabBarIcon: ({ tintColor }) => (
+                <Icon
+                    name='date-range'
+                    color={ tintColor }
+                />
+            ),
+        },
+    },
+    CalendarSins: {
+        screen: SinsPage,
+        path: '/calendar/sins',
+        navigationOptions: {
+            title: 'Перегляд по даті',
+            headerStyle: {
+                backgroundColor: '#000',
+            },
+            headerTintColor: '#fff',
+        
+            tabBarIcon: ({ tintColor }) => (
+                <Icon
+                    name='date-range'
                     color={ tintColor }
                 />
             ),
@@ -71,16 +107,7 @@ const Tabbar = TabNavigator({
         },
     },
     Calendar: { 
-        screen: Calendar,
-        navigationOptions: {
-            tabBarIcon: ({ tintColor }) => (
-                <Icon
-                    name='date-range'
-                    color={ tintColor }
-                />
-            ),
-        },
-
+        screen: CalendarTab
     }
 },{
     tabBarPosition: 'bottom',

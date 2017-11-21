@@ -28,22 +28,22 @@ export const loadSins = () => {
 export const loadTodaySins = () => {
     return dispatch =>{
         dispatch({
-            type: 'LOAD_SINS_START'
+            type: 'LOAD_TODAY_SINS_START'
         })
 
         api.listTodaySins().then(
             response => dispatch({
-                type: 'LOAD_SINS_SUCCESS',
+                type: 'LOAD_TODAY_SINS_SUCCESS',
                 payload: response
             },{
-                type: 'LOAD_SINS_END'
+                type: 'LOAD_TODAY_SINS_END'
             })
         )
         .catch(
             error => dispatch({
-                type: 'LOAD_SINS_ERROR'
+                type: 'LOAD_TODAY_SINS_ERROR'
             },{
-                type: 'LOAD_SINS_END'
+                type: 'LOAD_TODAY_SINS_END'
             })
         )
     }
@@ -87,6 +87,8 @@ export const addSins = (name, category, circle, additional) =>{
                     type: 'ADD_SINS_END'
                 },{
                     type: 'ADD_SINS_SUCCESS'
+                },{
+                    type: 'ADD_TODAY_SINS_SUCCESS'
                 })
             }
         )
