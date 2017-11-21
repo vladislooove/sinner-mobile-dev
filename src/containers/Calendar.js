@@ -11,7 +11,7 @@ class Calendar extends React.Component {
         catch ({code, message}) {
             console.warn(`Error in example '${stateKey}': `, message);
         }
-    };
+    }
 
     showDatePickerTo = async (stateKey, options) => {
         try {
@@ -20,8 +20,11 @@ class Calendar extends React.Component {
         catch ({code, message}) {
             console.warn(`Error in example '${stateKey}': `, message);
         }
-    };
+    }
 
+    navigateToCalendarSins(){
+        this.props.navigation.navigate({routeName: 'CalendarSins'});
+    }
     render() {
         return (
             <ScrollView style={{backgroundColor: '#222', flex: 1, paddingTop: 25, paddingLeft: 5, paddingRight: 5}} >
@@ -41,7 +44,7 @@ class Calendar extends React.Component {
                     <Text style={{ textAlign: 'center', color: '#fff', fontSize: 16, paddingTop: 10, paddingBottom: 10}}>Обрати кінцеву дату</Text>
                 </TouchableOpacity>
                 <Button
-                    onPress={() => { console.log(this)} }
+                    onPress={this.navigateToCalendarSins.bind(this)}                    
                     color='#e22d22'
                     title='Переглянути' />
 
