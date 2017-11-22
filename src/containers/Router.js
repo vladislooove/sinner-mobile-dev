@@ -61,7 +61,7 @@ const CalendarTab = StackNavigator({
         },
     },
     CalendarSins: {
-        screen: SinsPage,
+        screen: CalendarSins,
         path: '/calendar/sins',
         navigationOptions: {
             title: 'Перегляд по даті',
